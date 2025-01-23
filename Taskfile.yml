@@ -1,0 +1,32 @@
+version: '3'
+
+tasks:
+  clean_up:
+    desc: "Clean up all folders."
+    aliases:
+      - clean
+    cmds:
+      - sudo rm -rf coverage/
+
+  tests:
+    desc: "Run tests and save coverage to coverage folder."
+    aliases:
+      - test
+    cmds:
+      - mkdir -p ./coverage
+      - go test -v -shuffle=on -coverprofile ./coverage/coverage.out -coverpkg=. .
+      - go tool cover -html ./coverage/coverage.out -o ./coverage/coverage.html
+
+  benchmarks:
+    desc: "Run benchmarks."
+    aliases:
+      - bench
+    cmd: go test -v . -bench=. -run=xxx -benchmem >> bench.txt
+
+  linters:
+    desc: "Run linters."
+    aliases:
+      - lint
+    cmds:
+      - golangci-lint run -v --fix
+
