@@ -1,23 +1,8 @@
-package build
+package dockercompose
 
-const ProdBuildContent = `version: '3'
+const LocalContent = `version: '3'
 
 services:
-  hmtm_<service-name>:
-    container_name: hmtm_<service-name>
-    image: hmtm_<service-name>
-    build:
-      context: ../../..
-      dockerfile: ./build/package/Dockerfile
-    ports:
-      - "${HMTM_<service-name-upper>_OUTER_PORT}:${HMTM_<service-name-upper>_INNER_PORT}"
-    depends_on:
-      - hmtm_<service-name>_database
-    volumes:
-      - ../../../logs/:/app/logs/
-    networks:
-      - hmtm_network
-
   hmtm_<service-name>_database:
     container_name: hmtm_<service-name>_database
     hostname: hmtm_<service-name>_database

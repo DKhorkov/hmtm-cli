@@ -10,9 +10,9 @@ import (
 	"google.golang.org/grpc"
 )
 
-// RegisterServer handler (serverAPI) for <TODO add gRPC server name here> to gRPC server:
-// TODO add <service-name>.RegisterServiceServer with ServerAPI inside
+// RegisterServer handler (serverAPI) connects <service-name-title>Server to gRPC server:
 func RegisterServer(gRPCServer *grpc.Server, useCases interfaces.UseCases, logger *slog.Logger) {
+	<service-name>.Register<service-name-title>ServiceServer(gRPCServer, &ServerAPI{useCases: useCases, logger: logger})
 }
 
 type ServerAPI struct {

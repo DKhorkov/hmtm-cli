@@ -54,9 +54,19 @@ func main() {
 		}
 	}()
 
-	// TODO add your repositories and services here an add them to usecases constructor:
-	useCases := usecases.NewCommonUseCases()
+	<service-name>Repository := repositories.NewCommon<service-name-title>Repository(
+		dbConnector,
+		logger,
+		traceProvider,
+		settings.Tracing.Spans.Root,
+	)
 
+	<service-name>Service := services.NewCommon<service-name-title>Service(
+		<service-name>Repository,
+		logger,
+	)
+
+	useCases := usecases.NewCommonUseCases(<service-name>Service)
 	controller := grpccontroller.New(
 		settings.HTTP.Host,
 		settings.HTTP.Port,

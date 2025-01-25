@@ -11,7 +11,6 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/DKhorkov/hmtm-sso/api/protobuf/generated/go/sso"
 	"github.com/DKhorkov/libs/requestid"
 )
 
@@ -36,8 +35,5 @@ func main() {
 	}
 
 	ctx := metadata.AppendToOutgoingContext(context.Background(), requestid.Key, requestid.New())
-
-	// TODO remove after adding logic:
-	fmt.Println(client, ctx)
 }
 `

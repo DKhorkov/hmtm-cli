@@ -9,7 +9,6 @@ import (
 
 	"google.golang.org/grpc"
 
-	"github.com/DKhorkov/hmtm-<service-name>/internal/controllers/grpc/responds"
 	"github.com/DKhorkov/hmtm-<service-name>/internal/controllers/grpc/<service-name>"
 	"github.com/DKhorkov/hmtm-<service-name>/internal/interfaces"
 	customgrpc "github.com/DKhorkov/libs/grpc/interceptors"
@@ -35,7 +34,6 @@ func New(
 
 	// Connects our gRPC services to grpcServer:
 	<service-name>.RegisterServer(grpcServer, useCases, logger)
-	responds.RegisterServer(grpcServer, useCases, logger)
 
 	return &Controller{
 		grpcServer: grpcServer,

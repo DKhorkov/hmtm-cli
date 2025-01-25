@@ -5,14 +5,15 @@ package cmd
 
 import (
 	"fmt"
-	"hmtm-cli/createservice"
+	"hmtm-cli/internal/createservice"
+	"strings"
 
 	"github.com/spf13/cobra"
 )
 
 // createServiceCmd represents the create command.
 var createServiceCmd = &cobra.Command{
-	Use:   "create",
+	Use:   "create-service",
 	Short: "Creates a new service structure",
 	Long: `
 		Creates a new service boilerplate. All necessary base directories and files will be created.
@@ -22,10 +23,10 @@ var createServiceCmd = &cobra.Command{
 			panic("Please provide a service name")
 		}
 
-		serviceName := args[0]
-		err := createservice.Init(serviceName)
+		serviceName := strings.ToLower(args[0])
+		err := createservice.Create(serviceName)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Printf("Failer to create \"%s\" service\n. Error: %v\n", serviceName, err)
 		}
 
 		fmt.Printf("Successfully created \"%s\" service\n\n", serviceName)
