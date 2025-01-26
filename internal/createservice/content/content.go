@@ -3,17 +3,17 @@ package content
 import (
 	"strings"
 
-	"hmtm-cli/internal/createservice/content/api"
-	"hmtm-cli/internal/createservice/content/build"
-	"hmtm-cli/internal/createservice/content/build/dockercompose"
-	"hmtm-cli/internal/createservice/content/cmd"
-	"hmtm-cli/internal/createservice/content/docs"
-	"hmtm-cli/internal/createservice/content/github"
-	"hmtm-cli/internal/createservice/content/internal"
-	"hmtm-cli/internal/createservice/content/internal/controllers"
-	"hmtm-cli/internal/createservice/content/internal/interfaces"
-	"hmtm-cli/internal/createservice/content/scripts"
-	"hmtm-cli/internal/createservice/content/tools"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/content/api"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/content/build"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/content/build/dockercompose"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/content/cmd"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/content/docs"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/content/github"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/content/internal"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/content/internal/controllers"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/content/internal/interfaces"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/content/scripts"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/content/tools"
 )
 
 const (

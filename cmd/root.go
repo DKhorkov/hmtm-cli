@@ -12,11 +12,10 @@ import (
 // rootCmd represents the base command when called without any subcommands.
 var rootCmd = &cobra.Command{
 	Use:   "hmtm-cli",
-	Short: "hmtm-cli is created for help  to work with Handmade Toys Marketplace application",
-	Long: `
-		For example:
-			hmtm-cli create notifications - This command will create a new boilerplate for 
-								microservice named "notifications"
+	Short: "hmtm-cli is created for help to work with Handmade Toys Marketplace application",
+	Long: `Usage:
+
+hmtm-cli create <service-name> - This command will create a new boilerplate for new microservice with provided name
 	`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:

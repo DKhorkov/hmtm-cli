@@ -1,8 +1,8 @@
 package createservice
 
 import (
-	"hmtm-cli/internal/createservice/content"
-	"hmtm-cli/internal/createservice/structure"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/content"
+	"github.com/DKhorkov/hmtm-cli/internal/createservice/structure"
 )
 
 func Create(name string) error {

@@ -5,24 +5,22 @@ package cmd
 
 import (
 	"fmt"
-	"hmtm-cli/internal/createservice"
 	"strings"
 
 	"github.com/spf13/cobra"
+
+	"github.com/DKhorkov/hmtm-cli/internal/createservice"
 )
 
 // createServiceCmd represents the create command.
 var createServiceCmd = &cobra.Command{
-	Use:   "create-service",
+	Use:   "create-service <service-name>",
+	Args:  cobra.ExactArgs(1), // Only service name arg is expected
 	Short: "Creates a new service structure",
-	Long: `
-		Creates a new service boilerplate. All necessary base directories and files will be created.
-	`,
+	Long: `Creates a new service boilerplate. 
+All necessary base directories and files will be created.
+`,
 	Run: func(cmd *cobra.Command, args []string) {
-		if len(args) == 0 {
-			panic("Please provide a service name")
-		}
-
 		serviceName := strings.ToLower(args[0])
 		err := createservice.Create(serviceName)
 		if err != nil {
@@ -40,9 +38,9 @@ func init() {
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// initCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// createServiceCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// initCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// createServiceCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

@@ -3,7 +3,7 @@ Copyright © 2025 NAME HERE <EMAIL ADDRESS>
 */
 package main
 
-import "hmtm-cli/cmd"
+import "github.com/DKhorkov/hmtm-cli/cmd"
 
 func main() {
 	cmd.Execute()

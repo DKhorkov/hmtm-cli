@@ -84,7 +84,33 @@ func New() Config {
 						},
 					},
 				},
-				Repositories: SpanRepositories{},
+				Repositories: SpanRepositories{
+					<service-name-title>: tracing.SpanConfig{
+						Opts: []trace.SpanStartOption{
+							trace.WithAttributes(
+								attribute.String("Environment", loadenv.GetEnv("ENVIRONMENT", "local")),
+							),
+						},
+						Events: tracing.SpanEventsConfig{
+							Start: tracing.SpanEventConfig{
+								Name: "Calling database",
+								Opts: []trace.EventOption{
+									trace.WithAttributes(
+										attribute.String("Environment", loadenv.GetEnv("ENVIRONMENT", "local")),
+									),
+								},
+							},
+							End: tracing.SpanEventConfig{
+								Name: "Received response from database",
+								Opts: []trace.EventOption{
+									trace.WithAttributes(
+										attribute.String("Environment", loadenv.GetEnv("ENVIRONMENT", "local")),
+									),
+								},
+							},
+						},
+					},
+				},
 				Clients: SpanClients{},
 			},
 		},
@@ -116,7 +142,9 @@ type SpansConfig struct {
 	Clients      SpanClients
 }
 
-type SpanRepositories struct {}
+type SpanRepositories struct {
+	<service-name-title> tracing.SpanConfig
+}
 
 type SpanClients struct {}
 

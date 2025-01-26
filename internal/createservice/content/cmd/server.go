@@ -58,7 +58,7 @@ func main() {
 		dbConnector,
 		logger,
 		traceProvider,
-		settings.Tracing.Spans.Root,
+		settings.Tracing.Spans.Repositories.<service-name-title>,
 	)
 
 	<service-name>Service := services.NewCommon<service-name-title>Service(
