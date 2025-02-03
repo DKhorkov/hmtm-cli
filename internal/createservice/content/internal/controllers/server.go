@@ -16,7 +16,8 @@ func RegisterServer(gRPCServer *grpc.Server, useCases interfaces.UseCases, logge
 }
 
 type ServerAPI struct {
-	// TODO add <service-name>.UnimplementedServer here
+	// Helps to test single endpoints, if others is not implemented yet
+	<service-name>.Unimplemented<service-name-title>ServiceServer
 	useCases interfaces.UseCases
 	logger   *slog.Logger
 }

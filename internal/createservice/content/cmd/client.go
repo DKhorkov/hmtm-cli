@@ -11,11 +11,13 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/protobuf/types/known/emptypb"
 
+	"github.com/DKhorkov/hmtm-orders/api/protobuf/generated/go/<service-name>"
 	"github.com/DKhorkov/libs/requestid"
 )
 
-// TODO add client gRPC variables inside
-type Client struct {}
+type Client struct {
+	<service-name>.<service-name-title>ServiceClient
+}
 
 func main() {
 	clientConnection, err := grpc.NewClient(
@@ -31,7 +33,7 @@ func main() {
 	}
 
 	client := &Client{
-		// TODO add gRPC clients here
+		<service-name-title>ServiceClient: <service-name>.New<service-name-title>ServiceClient(clientConnection),
 	}
 
 	ctx := metadata.AppendToOutgoingContext(context.Background(), requestid.Key, requestid.New())

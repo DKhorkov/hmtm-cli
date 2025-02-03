@@ -114,6 +114,17 @@ func New() Config {
 				Clients: SpanClients{},
 			},
 		},
+		NATS: NATSConfig{
+			ClientURL: fmt.Sprintf(
+				"nats://%s:%d",
+				loadenv.GetEnv("NATS_HOST", "0.0.0.0"),
+				loadenv.GetEnvAsInt("NATS_CLIENT_PORT", 4222),
+			),
+			Subjects: NATSSubjects{},
+			Publisher: NATSPublisher{
+				Name: loadenv.GetEnv("NATS_PUBLISHER_NAME", "hmtm-<service-name>-publisher"),
+			},
+		},
 	}
 }
 
@@ -148,6 +159,18 @@ type SpanRepositories struct {
 
 type SpanClients struct {}
 
+type NATSConfig struct {
+	ClientURL string
+	Subjects  NATSSubjects
+	Publisher NATSPublisher
+}
+
+type NATSSubjects struct {}
+
+type NATSPublisher struct {
+	Name string
+}
+
 type Config struct {
 	HTTP        HTTPConfig
 	Database    db.Config
@@ -156,5 +179,6 @@ type Config struct {
 	Tracing     TracingConfig
 	Environment string
 	Version     string
+	NATS        NATSConfig
 }
 `
