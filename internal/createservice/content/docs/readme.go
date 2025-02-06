@@ -41,4 +41,6 @@ const ReadmeContent = "## Usage\n\n" +
 	"To print status of all migrations, use next command:\n" +
 	"```shell\ntask -d scripts migrations_status\n```\n\n" +
 	"## Tracing\n\n" +
-	"To see tracing open\nnext [link](http://localhost:16686) in browser.\n"
+	"To see tracing open\nnext [link](http://localhost:16686) in browser.\n\n" +
+	"## NATS\n\n" +
+	"To see NATS monitoring open\nnext [link](http://localhost:8222) in browser.\n"

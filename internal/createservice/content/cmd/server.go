@@ -5,15 +5,16 @@ const ServerContent = `package main
 import (
 	"context"
 
+	"github.com/DKhorkov/libs/db"
+	"github.com/DKhorkov/libs/logging"
+	"github.com/DKhorkov/libs/tracing"
+
 	"github.com/DKhorkov/hmtm-<service-name>/internal/app"
 	"github.com/DKhorkov/hmtm-<service-name>/internal/config"
 	grpccontroller "github.com/DKhorkov/hmtm-<service-name>/internal/controllers/grpc"
 	"github.com/DKhorkov/hmtm-<service-name>/internal/repositories"
 	"github.com/DKhorkov/hmtm-<service-name>/internal/services"
 	"github.com/DKhorkov/hmtm-<service-name>/internal/usecases"
-	"github.com/DKhorkov/libs/db"
-	"github.com/DKhorkov/libs/logging"
-	"github.com/DKhorkov/libs/tracing"
 )
 
 func main() {

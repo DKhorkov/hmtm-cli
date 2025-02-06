@@ -5,9 +5,10 @@ const ServerContent = `package <service-name>
 import (
 	"log/slog"
 
+	"google.golang.org/grpc"
+
 	"github.com/DKhorkov/hmtm-<service-name>/api/protobuf/generated/go/<service-name>"
 	"github.com/DKhorkov/hmtm-<service-name>/internal/interfaces"
-	"google.golang.org/grpc"
 )
 
 // RegisterServer handler (serverAPI) connects <service-name-title>Server to gRPC server:

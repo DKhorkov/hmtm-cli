@@ -11,8 +11,9 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/DKhorkov/hmtm-orders/api/protobuf/generated/go/<service-name>"
 	"github.com/DKhorkov/libs/requestid"
+
+	"github.com/DKhorkov/hmtm-orders/api/protobuf/generated/go/<service-name>"
 )
 
 type Client struct {
