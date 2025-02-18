@@ -6,15 +6,15 @@ import (
 	"github.com/DKhorkov/hmtm-<service-name>/internal/interfaces"
 )
 
-func NewCommonUseCases(
+func New(
 	service interfaces.<service-name-title>Service,
-) *CommonUseCases {
-	return &CommonUseCases{
+) *UseCases {
+	return &UseCases{
 		<service-name>Service:  service,
 	}
 }
 
-type CommonUseCases struct {
+type UseCases struct {
 	<service-name>Service  interfaces.<service-name-title>Service
 }
 `

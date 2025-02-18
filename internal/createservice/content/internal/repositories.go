@@ -9,13 +9,13 @@ import (
 	"github.com/DKhorkov/libs/tracing"
 )
 
-func NewCommon<service-name-title>Repository(
+func New<service-name-title>Repository(
 	dbConnector db.Connector,
 	logger *slog.Logger,
-	traceProvider tracing.TraceProvider,
+	traceProvider tracing.Provider,
 	spanConfig tracing.SpanConfig,
-) *Common<service-name-title>Repository {
-	return &Common<service-name-title>Repository{
+) *<service-name-title>Repository {
+	return &<service-name-title>Repository{
 		dbConnector:   dbConnector,
 		logger:        logger,
 		traceProvider: traceProvider,
@@ -23,10 +23,10 @@ func NewCommon<service-name-title>Repository(
 	}
 }
 
-type Common<service-name-title>Repository struct {
+type <service-name-title>Repository struct {
 	dbConnector   db.Connector
 	logger        *slog.Logger
-	traceProvider tracing.TraceProvider
+	traceProvider tracing.Provider
 	spanConfig    tracing.SpanConfig
 }
 `

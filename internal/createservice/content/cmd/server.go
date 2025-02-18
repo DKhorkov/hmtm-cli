@@ -55,19 +55,19 @@ func main() {
 		}
 	}()
 
-	<service-name>Repository := repositories.NewCommon<service-name-title>Repository(
+	<service-name>Repository := repositories.New<service-name-title>Repository(
 		dbConnector,
 		logger,
 		traceProvider,
 		settings.Tracing.Spans.Repositories.<service-name-title>,
 	)
 
-	<service-name>Service := services.NewCommon<service-name-title>Service(
+	<service-name>Service := services.New<service-name-title>Service(
 		<service-name>Repository,
 		logger,
 	)
 
-	useCases := usecases.NewCommonUseCases(<service-name>Service)
+	useCases := usecases.New(<service-name>Service)
 	controller := grpccontroller.New(
 		settings.HTTP.Host,
 		settings.HTTP.Port,

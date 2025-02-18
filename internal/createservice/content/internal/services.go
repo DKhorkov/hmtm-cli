@@ -8,17 +8,17 @@ import (
 	"github.com/DKhorkov/hmtm-<service-name>/internal/interfaces"
 )
 
-func NewCommon<service-name-title>Service(
+func New<service-name-title>Service(
 	<service-name>Repository  interfaces.<service-name-title>Repository,
 	logger            		  *slog.Logger,
-) *Common<service-name-title>Service {
-	return &Common<service-name-title>Service{
+) *<service-name-title>Service {
+	return &<service-name-title>Service{
 		<service-name>Repository:  <service-name>Repository,
 		logger:            		   logger,
 	}
 }
 
-type Common<service-name-title>Service struct {
+type <service-name-title>Service struct {
 	<service-name>Repository  interfaces.<service-name-title>Repository
 	logger            		  *slog.Logger
 }
