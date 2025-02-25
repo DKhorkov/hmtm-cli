@@ -4,7 +4,6 @@ const ControllerContent = `package grpccontroller
 
 import (
 	"fmt"
-	"log/slog"
 	"net"
 
 	"google.golang.org/grpc"
@@ -12,6 +11,7 @@ import (
 	customgrpc "github.com/DKhorkov/libs/grpc/interceptors"
 	"github.com/DKhorkov/libs/logging"
 	"github.com/DKhorkov/libs/tracing"
+	"github.com/DKhorkov/libs/logging"
 
 	"github.com/DKhorkov/hmtm-<service-name>/internal/controllers/grpc/<service-name>"
 	"github.com/DKhorkov/hmtm-<service-name>/internal/interfaces"
@@ -22,7 +22,7 @@ func New(
 	host string,
 	port int,
 	useCases interfaces.UseCases,
-	logger *slog.Logger,
+	logger logging.Logger,
 	traceProvider tracing.Provider,
 	spanConfig tracing.SpanConfig,
 ) *Controller {
@@ -48,7 +48,7 @@ type Controller struct {
 	grpcServer *grpc.Server
 	host       string
 	port       int
-	logger     *slog.Logger
+	logger     logging.Logger
 }
 
 // Run gRPC server.
