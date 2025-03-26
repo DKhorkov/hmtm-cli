@@ -143,7 +143,7 @@ tasks:
       - sudo chmod -R 777 postgres_data
       - sudo chmod -R 777 postgres_backups
       - mkdir -p ./coverage
-      - go test -v -shuffle=on -coverprofile ./coverage/coverage.out -coverpkg=./... ./... -tags=integration
+      - go test -v -shuffle=on -coverprofile ./coverage/coverage.out -coverpkg=$(go list ./... | grep -v -F -f .coverignore | paste -sd, -) ./... -tags=integration
       - go tool cover -html ./coverage/coverage.out -o ./coverage/coverage.html
 
   benchmarks:
@@ -162,6 +162,8 @@ tasks:
       - task: create_postgres_folders
       - sudo chmod -R 777 postgres_data
       - sudo chmod -R 777 postgres_backups
+      - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
+      - export PATH=$PATH:$(go env GOPATH)/bin
       - golangci-lint run -v --fix
 
   makemigrations:

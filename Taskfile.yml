@@ -14,7 +14,7 @@ tasks:
       - test
     cmds:
       - mkdir -p ./coverage
-      - go test -v -shuffle=on -coverprofile ./coverage/coverage.out -coverpkg=./... ./...
+      - go test -v -shuffle=on -coverprofile ./coverage/coverage.out -coverpkg=$(go list ./... | grep -v -F -f .coverignore | paste -sd, -) ./... -tags=integration
       - go tool cover -html ./coverage/coverage.out -o ./coverage/coverage.html
 
   benchmarks:
@@ -28,5 +28,7 @@ tasks:
     aliases:
       - lint
     cmds:
+      - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
+      - export PATH=$PATH:$(go env GOPATH)/bin
       - golangci-lint run -v --fix
 

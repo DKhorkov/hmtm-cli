@@ -12,7 +12,8 @@ func TestNewContent(t *testing.T) {
 		var (
 			serviceName = "orders"
 			expected    = []string{
-				".github/workflows/main.yml",
+				".github/workflows/linters.yml",
+				".github/workflows/tests.yml",
 				fmt.Sprintf("api/protobuf/protofiles/%s/%s.proto", serviceName, serviceName),
 				"build/package/local/docker-compose.yml",
 				"build/package/prod/docker-compose.yml",
@@ -35,7 +36,8 @@ func TestNewContent(t *testing.T) {
 				"scripts/postgres/backup",
 				"scripts/postgres/restore",
 				".gitignore",
-				".golangci.yml",
+				".coverignore",
+				".golangci.yaml",
 				"go.mod",
 				"LICENSE",
 				"README.md",

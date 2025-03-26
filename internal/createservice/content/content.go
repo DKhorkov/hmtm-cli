@@ -23,7 +23,8 @@ const (
 )
 
 var pathsContent = map[string]string{
-	".github/workflows/main.yml":                                  github.GithubContent,
+	".github/workflows/linters.yml":                               github.GithubLintersContent,
+	".github/workflows/tests.yml":                                 github.GithubTestsContent,
 	"api/protobuf/protofiles/<service-name>/<service-name>.proto": api.ProtoContent,
 	"build/package/local/docker-compose.yml":                      dockercompose.LocalContent,
 	"build/package/prod/docker-compose.yml":                       dockercompose.ProdContent,
@@ -46,7 +47,8 @@ var pathsContent = map[string]string{
 	"scripts/postgres/backup":                                     scripts.BackupContent,
 	"scripts/postgres/restore":                                    scripts.RestoreContent,
 	".gitignore":                                                  tools.GitignoreContent,
-	".golangci.yml":                                               tools.LintersContent,
+	".coverignore":                                                tools.CoverignoreContent,
+	".golangci.yaml":                                              tools.LintersContent,
 	"go.mod":                                                      tools.GoModContent,
 	"LICENSE":                                                     docs.LicenseContent,
 	"README.md":                                                   docs.ReadmeContent,
@@ -84,7 +86,9 @@ func New(serviceName string) map[string]string {
 		mapCopy[path] = strings.Replace(
 			content,
 			serviceNameTitlePlaceholder,
-			strings.ToUpper(string(serviceName[0]))+serviceName[1:], // Only ASCII letters should be in service name
+			strings.ToUpper(
+				string(serviceName[0]),
+			)+serviceName[1:], // Only ASCII letters should be in service name
 			-1,
 		)
 	}

@@ -1,21 +1,9 @@
-name: main-workflow
+package github
+
+const GithubTestsContent = `name: tests-workflow
 run-name: ${{ github.actor }} is testing changes
 on: [push, pull_request]
 jobs:
-  linters:
-    name: golangci-lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out source repository
-        uses: actions/checkout@v4
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: stable
-      - name: Run linters
-        uses: golangci/golangci-lint-action@v6
-        with:
-          version: v1.64.5
   tests:
     runs-on: ubuntu-latest
     name: Tests
@@ -30,3 +18,4 @@ jobs:
         run: go get ./...
       - name: Run tests
         run: go test -v ./...
+`

@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func createFile(path string, content string) error {
+func createFile(path, content string) error {
 	file, err := os.Create(path)
 	if err != nil {
 		return err
