@@ -16,7 +16,7 @@ read [next article](https://stackoverflow.com/questions/36083542/error-command-n
 
 To run linters, use next command:
 ```shell
-task linters -v
+task -d scripts linters -v
 ```
 
 ## Tests
@@ -24,12 +24,17 @@ task linters -v
 To run test, use next command. Coverage info will be
 recorded to ```coverage``` folder:
 ```shell
-task tests -v
+task -d scripts tests -v
+```
+
+To include integration tests, add `integration` flag:
+```shell
+task -d scripts tests integration=true -v
 ```
 
 ## Benchmarks
 
 To run benchmarks, use next command:
 ```shell
-task bench -v
+task -d scripts bench -v
 ```

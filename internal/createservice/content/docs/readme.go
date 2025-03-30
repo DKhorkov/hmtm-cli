@@ -24,6 +24,8 @@ const ReadmeContent = "## Usage\n\n" +
 	"To run test, use next commands.Coverage docs will be\n" +
 	"recorded to ```coverage``` folder:\n" +
 	"```shell\ntask -d scripts tests -v\n```\n\n" +
+	"To include integration tests, add `integration` flag:\n" +
+	"```shell\ntask -d scripts tests integration=true -v\n```\n\n" +
 	"## Benchmarks\n\n" +
 	"To run benchmarks, use next command:\n" +
 	"```shell\ntask -d scripts bench -v\n```\n\n" +
