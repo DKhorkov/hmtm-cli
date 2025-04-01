@@ -30,7 +30,7 @@ var structure = []string{
 
 func New(serviceName string) []string {
 	for i := range structure {
-		structure[i] = strings.Replace(structure[i], serviceNamePlaceholder, serviceName, -1)
+		structure[i] = strings.ReplaceAll(structure[i], serviceNamePlaceholder, serviceName)
 	}
 
 	return structure

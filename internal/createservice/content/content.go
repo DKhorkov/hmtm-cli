@@ -60,36 +60,33 @@ func New(serviceName string) map[string]string {
 
 	// Replace service placeholder on real service name in every path:
 	for path, content := range pathsContent {
-		mapCopy[strings.Replace(path, serviceNamePlaceholder, serviceName, -1)] = content
+		mapCopy[strings.ReplaceAll(path, serviceNamePlaceholder, serviceName)] = content
 	}
 
 	for path, content := range mapCopy {
-		mapCopy[path] = strings.Replace(
+		mapCopy[path] = strings.ReplaceAll(
 			content,
 			serviceNamePlaceholder,
 			serviceName,
-			-1,
 		)
 	}
 
 	// in each iteration for correct work of replacement:
 	for path, content := range mapCopy {
-		mapCopy[path] = strings.Replace(
+		mapCopy[path] = strings.ReplaceAll(
 			content,
 			serviceNameUpperPlaceholder,
 			strings.ToUpper(serviceName),
-			-1,
 		)
 	}
 
 	for path, content := range mapCopy {
-		mapCopy[path] = strings.Replace(
+		mapCopy[path] = strings.ReplaceAll(
 			content,
 			serviceNameTitlePlaceholder,
 			strings.ToUpper(
 				string(serviceName[0]),
 			)+serviceName[1:], // Only ASCII letters should be in service name
-			-1,
 		)
 	}
 

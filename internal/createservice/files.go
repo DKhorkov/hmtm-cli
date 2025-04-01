@@ -18,6 +18,7 @@ func createFile(path, content string) error {
 	}()
 
 	_, err = file.WriteString(content)
+
 	return err
 }
 
