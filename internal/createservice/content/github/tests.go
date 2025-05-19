@@ -19,5 +19,5 @@ jobs:
       - name: Install dependencies
         run: go get ./...
       - name: Run tests
-        run: task -d scripts tests -v
+        run: task -d scripts tests integration=true -v
 `

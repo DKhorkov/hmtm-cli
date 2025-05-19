@@ -1,8 +1,6 @@
 package dockercompose
 
-const ProdContent = `version: '3'
-
-services:
+const ProdContent = `services:
   hmtm_<service-name>:
     container_name: hmtm_<service-name>
     image: hmtm_<service-name>
@@ -36,4 +34,6 @@ services:
 
 networks:
   hmtm_network:
+    name: hmtm_network
+    external: true
 `

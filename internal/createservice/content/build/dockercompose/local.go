@@ -1,8 +1,6 @@
 package dockercompose
 
-const LocalContent = `version: '3'
-
-services:
+const LocalContent = `services:
   hmtm_<service-name>_database:
     container_name: hmtm_<service-name>_database
     hostname: hmtm_<service-name>_database
@@ -21,4 +19,6 @@ services:
 
 networks:
   hmtm_network:
+    name: hmtm_network
+    external: true
 `
